@@ -4,3 +4,4 @@ git+https://github.com/keboola/sapi-python-client.git
 pandas==1.4
 plotly==5.9.0
 streamlit_extras
+snowflake-snowpark-python
