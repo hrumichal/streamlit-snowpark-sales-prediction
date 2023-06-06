@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 import streamlit as st
 import datetime
 
-@st.cache_data
+@st.cache_data(show_spinner=False)
 def preprocess_data(original_dataframe:pd.DataFrame, category, time_col='approximate_timestamp', freq='1H'):
     
     FILTER = (original_dataframe.category==category)
@@ -82,14 +82,14 @@ def create_series_plot_new(dataframe:pd.DataFrame):
     
     fig = go.Figure()
     fig.update_layout(
-        title={"text":'Pizza Hut - Actual vs Forecasted Sales'}
+        title={"text":'Burger Hut - Actual vs Forecasted Sales'}
         )
     fig.add_scatter(x=dataframe['dt'], 
                     y=dataframe['metric_actual'], 
                     name='Actuals data', 
                     mode='markers+lines', 
                     #dash='dash',
-                    line=dict(color="grey", dash="dot", width=4)
+                    line=dict(color="lightgrey", width=12)
                     )
     fig.add_scatter(x=dataframe['dt'], 
                     y=dataframe['metric_forecast'], 
