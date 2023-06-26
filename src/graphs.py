@@ -82,7 +82,7 @@ def create_series_plot_new(dataframe:pd.DataFrame):
     
     fig = go.Figure()
     fig.update_layout(
-        title={"text":'Burger Hut - Actual vs Forecasted Sales'}
+        title={"text":'Warehouse Management - Actual vs Forecasted Sales'}
         )
     fig.add_scatter(x=dataframe['dt'], 
                     y=dataframe['metric_actual'], 
