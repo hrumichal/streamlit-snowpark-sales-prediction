@@ -87,23 +87,23 @@ def getPage():
         
         #st.write(accu_preprocessed_filtered_agg)
         # 2. calculate MAPE
-        mape_lunch_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_actual, 
-                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_forecast)
+        mape_pallete_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast)
 
-        mape_lunch_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_actual, 
-                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_forecast_lgbm)
+        mape_pallete_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast_lgbm)
 
-        mape_lunch_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_actual, 
-                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_forecast_rf)
+        mape_pallete_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast_rf)
 
-        mape_dinner_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_actual, 
-                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_forecast)
+        mape_package_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast)
 
-        mape_dinner_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_actual, 
-                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_forecast_lgbm)
+        mape_package_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast_lgbm)
 
-        mape_dinner_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_actual, 
-                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_forecast_rf)
+        mape_package_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+                                accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast_rf)
 
 
         #if meals_preprocessed_filtered.empty:
@@ -118,11 +118,11 @@ def getPage():
         with st.container():
             coltl,coltr=st.columns(2)
             with coltl:
-                st.markdown("### MAPE (lunch):")
+                st.markdown("### MAPE (pallete):")
                 st.markdown("(Mean Average Percentage Error)")
                        
             with coltr:
-                st.markdown("### MAPE (dinner):")
+                st.markdown("### MAPE (package):")
                 st.markdown("(Mean Average Percentage Error)")
 
             col1, col2,col3,col4,col5,col6 = st.columns(6)
@@ -130,20 +130,20 @@ def getPage():
             col11, col12, col13 = st.columns(3)
             with col1:
                 hg = 130
-                getCard(f'''Prophet {f"{mape_lunch_prophet:.2f} %"}''',15-mape_lunch_prophet,'fa-brands fa-meta',key='one',height=hg,unit='%',progressValue=15 - mape_lunch_prophet,compare=True)
+                getCard(f'''Prophet {f"{mape_pallete_prophet:.2f} %"}''',15-mape_pallete_prophet,'fa-brands fa-meta',key='one',height=hg,unit='%',progressValue=15 - mape_pallete_prophet,compare=True)
             with col2:
-                getCard(f'''LightGBM {f"{mape_lunch_lgbm:.2f} %"}''',15-mape_lunch_lgbm,'fa fa-sitemap',key='tw',height=hg,unit='%',progressValue=15 - mape_lunch_prophet,compare=True)
+                getCard(f'''LightGBM {f"{mape_pallete_lgbm:.2f} %"}''',15-mape_pallete_lgbm,'fa fa-sitemap',key='tw',height=hg,unit='%',progressValue=15 - mape_pallete_prophet,compare=True)
             with col3:
-                getCard(f'''RndForest {f"{mape_lunch_rf:.2f} %"}''',15-mape_lunch_rf,'fa fa-tree',key='thr',height=hg,unit='%',progressValue=15 - mape_lunch_prophet,compare=True)
+                getCard(f'''RndForest {f"{mape_pallete_rf:.2f} %"}''',15-mape_pallete_rf,'fa fa-tree',key='thr',height=hg,unit='%',progressValue=15 - mape_pallete_prophet,compare=True)
      
             
 
             with col4:
-                getCard(f'''Prophet {f"{mape_dinner_prophet:.2f} %"}''',15-mape_dinner_prophet,'fa-brands fa-meta',key='fr',height=hg,unit='%',progressValue=15 - mape_lunch_prophet,compare=True)
+                getCard(f'''Prophet {f"{mape_package_prophet:.2f} %"}''',15-mape_package_prophet,'fa-brands fa-meta',key='fr',height=hg,unit='%',progressValue=15 - mape_pallete_prophet,compare=True)
             with col5:
-                getCard(f'''LightGBM {f"{mape_dinner_lgbm:.2f} %"}''',15-mape_dinner_lgbm,'fa fa-sitemap',key='fv',height=hg,unit='%',progressValue=15 - mape_lunch_prophet,compare=True)
+                getCard(f'''LightGBM {f"{mape_package_lgbm:.2f} %"}''',15-mape_package_lgbm,'fa fa-sitemap',key='fv',height=hg,unit='%',progressValue=15 - mape_pallete_prophet,compare=True)
             with col6:
-                getCard(f'''RndForest {f"{mape_dinner_rf:.2f} %"}''',15-mape_dinner_rf,'fa fa-tree',key='six',height=hg,unit='%',progressValue=15 - mape_lunch_prophet,compare=True)
+                getCard(f'''RndForest {f"{mape_package_rf:.2f} %"}''',15-mape_package_rf,'fa fa-tree',key='six',height=hg,unit='%',progressValue=15 - mape_pallete_prophet,compare=True)
 
 
         #with col1:

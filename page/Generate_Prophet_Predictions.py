@@ -20,8 +20,8 @@ def getPage():
         
         # Get user inputs
         with st.expander('Filters',expanded=True):
-            category = st.selectbox("Enter category", ['Takeaway', 'Eat In'])
-            meal = st.selectbox("Enter meal", ['lunch', 'dinner'])
+            category = st.selectbox("Enter category", ['warehouse IN', 'warehouse OUT'])
+            meal = st.selectbox("Enter sub-category", ['pallete', 'package'])
             prediction_period = st.number_input("Enter prediction period (in days)", min_value=1, value=30)
         # training_start_date = st.date_input("Enter training start date")
         # training_start_date = st.text_input("Enter training start date")
