@@ -70,22 +70,22 @@ if st.session_state["authentication_status"]:
     
     #st.write(accu_preprocessed_filtered_agg)
     # 2. calculate MAPE
-    mape_lunch_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+    mape_palette_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
                               accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast)
 
-    mape_lunch_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+    mape_palette_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
                               accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast_lgbm)
 
-    mape_lunch_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+    mape_palette_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
                               accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast_rf)
 
-    mape_dinner_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+    mape_package_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
                               accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast)
 
-    mape_dinner_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+    mape_package_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
                               accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast_lgbm)
 
-    mape_dinner_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+    mape_package_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
                               accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast_rf)
 
 
@@ -105,11 +105,11 @@ if st.session_state["authentication_status"]:
 
             col11, col12, col13 = st.columns(3)
             with col11:
-                st.metric("Prophet", f"{mape_lunch_prophet:.2f} %", f"{15 - mape_lunch_prophet:.2f} %")
+                st.metric("Prophet", f"{mape_palette_prophet:.2f} %", f"{15 - mape_palette_prophet:.2f} %")
             with col12:
-                st.metric("LightGBM", f"{mape_lunch_lgbm:.2f} %", f"{15 - mape_lunch_lgbm:.2f} %")
+                st.metric("LightGBM", f"{mape_palette_lgbm:.2f} %", f"{15 - mape_palette_lgbm:.2f} %")
             with col13:
-                st.metric("Random Forest", f"{mape_lunch_rf:.2f} %", f"{15 - mape_lunch_rf:.2f} %")
+                st.metric("Random Forest", f"{mape_palette_rf:.2f} %", f"{15 - mape_palette_rf:.2f} %")
             
         with col2:
             st.markdown("### MAPE (package):")
@@ -117,11 +117,11 @@ if st.session_state["authentication_status"]:
             
             col21, col22, col23 = st.columns(3)
             with col21:
-                st.metric("Prophet", f"{mape_dinner_prophet:.2f} %", f"{15 - mape_dinner_prophet:.2f} %")
+                st.metric("Prophet", f"{mape_package_prophet:.2f} %", f"{15 - mape_package_prophet:.2f} %")
             with col22:
-                st.metric("LightGBM", f"{mape_dinner_lgbm:.2f} %", f"{15 - mape_dinner_lgbm:.2f} %")
+                st.metric("LightGBM", f"{mape_package_lgbm:.2f} %", f"{15 - mape_package_lgbm:.2f} %")
             with col23:
-                st.metric("Random Forest", f"{mape_dinner_rf:.2f} %", f"{15 - mape_dinner_rf:.2f} %")
+                st.metric("Random Forest", f"{mape_package_rf:.2f} %", f"{15 - mape_package_rf:.2f} %")
 
 
     col1, col2 = st.columns(2)
