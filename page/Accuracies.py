@@ -74,6 +74,10 @@ def getTable(df,key):
             ob.configure_column(columnName, header_name=columnName.replace('mape_',' ').replace("_"," ").upper(),rowGroup=False,hide= False,cellRenderer=getNbRenderer(suffix='%',arr=2))
     ob.configure_grid_options(suppressAggFuncInHeader = True)
     custom_css = {
+        ".ag-header":{
+            "border":"0px",
+            "border-radius":"8px"
+        },
         '.ag-header-cell-label': {
             "justify-content": "center",
             'text-align': 'center!important'
@@ -91,10 +95,11 @@ def getTable(df,key):
             "display":"none!important"
         },
         ".ag-root-wrapper":{
-             "margin-top":"2px",
-             "border-bottom": "2px",
-             "border-bottom-color": "#b9b5b5",
-             "border-bottom-style": "double"
+            "border":"0px"
+            #  "margin-top":"2px",
+            #  "border-bottom": "2px",
+            #  "border-bottom-color": "#b9b5b5",
+            #  "border-bottom-style": "double"
              }
         }
     gripOption=ob.build()

@@ -124,9 +124,9 @@ def create_summary_table(dataframe, start_date, end_date):
     summary_pivot_df = summary_df.pivot_table(columns=["meal_category"], index=["category"])
     colnames = ['_'.join([c1, c2]) for c1, c2 in summary_df.pivot_table(columns=["meal_category"], index=["category"]).columns]
     summary_pivot_df.columns=colnames
-    summary_pivot_df["prophet_mean"] = (summary_pivot_df["mape_prophet_lunch"] + summary_pivot_df["mape_prophet_dinner"]) / 2
-    summary_pivot_df["lgbm_mean"] = (summary_pivot_df["mape_lgbm_lunch"] + summary_pivot_df["mape_lgbm_dinner"]) / 2
-    summary_pivot_df["rf_mean"] = (summary_pivot_df["mape_rf_lunch"] + summary_pivot_df["mape_rf_dinner"]) / 2
+    summary_pivot_df["prophet_mean"] = (summary_pivot_df["mape_prophet_pallet"] + summary_pivot_df["mape_prophet_package"]) / 2
+    summary_pivot_df["lgbm_mean"] = (summary_pivot_df["mape_lgbm_pallet"] + summary_pivot_df["mape_lgbm_package"]) / 2
+    summary_pivot_df["rf_mean"] = (summary_pivot_df["mape_rf_pallet"] + summary_pivot_df["mape_rf_package"]) / 2
     
     summary_pivot_df.sort_values(by="prophet_mean", inplace=True)
 

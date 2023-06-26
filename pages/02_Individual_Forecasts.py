@@ -70,23 +70,23 @@ if st.session_state["authentication_status"]:
     
     #st.write(accu_preprocessed_filtered_agg)
     # 2. calculate MAPE
-    mape_lunch_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_actual, 
-                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_forecast)
+    mape_lunch_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast)
 
-    mape_lunch_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_actual, 
-                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_forecast_lgbm)
+    mape_lunch_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast_lgbm)
 
-    mape_lunch_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_actual, 
-                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='lunch'].metric_forecast_rf)
+    mape_lunch_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_actual, 
+                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='pallete'].metric_forecast_rf)
 
-    mape_dinner_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_actual, 
-                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_forecast)
+    mape_dinner_prophet = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast)
 
-    mape_dinner_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_actual, 
-                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_forecast_lgbm)
+    mape_dinner_lgbm = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast_lgbm)
 
-    mape_dinner_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_actual, 
-                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='dinner'].metric_forecast_rf)
+    mape_dinner_rf = MAPE(accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_actual, 
+                              accu_preprocessed_filtered_agg.loc[accu_preprocessed_filtered_agg.meal_category=='package'].metric_forecast_rf)
 
 
     #if meals_preprocessed_filtered.empty:
@@ -100,7 +100,7 @@ if st.session_state["authentication_status"]:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            st.markdown("### MAPE (lunch):")
+            st.markdown("### MAPE (pallete):")
             st.markdown("(Mean Average Percentage Error)")
 
             col11, col12, col13 = st.columns(3)
@@ -112,7 +112,7 @@ if st.session_state["authentication_status"]:
                 st.metric("Random Forest", f"{mape_lunch_rf:.2f} %", f"{15 - mape_lunch_rf:.2f} %")
             
         with col2:
-            st.markdown("### MAPE (dinner):")
+            st.markdown("### MAPE (package):")
             st.markdown("(Mean Average Percentage Error)")
             
             col21, col22, col23 = st.columns(3)
